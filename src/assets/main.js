@@ -1,11 +1,11 @@
-const API = 'https://youtube-v31.p.rapidapi.com/search?q=vegetta777&part=snippet%2Cid&regionCode=US&maxResults=9&order=date';
+const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCw05fUBPwmpu-ehXFMqfdMw&part=snippet%2Cid&order=date&maxResults=9';
 
 const content = null || document.getElementById('content');
 
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '408dad1e6bmshe277fcc2037d889p1c9c18jsna702b2f86e05',
+		'X-RapidAPI-Key': 'c68edbdba9mshc3cb6eb8038f3b2p1f444ajsna5de19fe1256',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
@@ -24,7 +24,7 @@ async function fetchData(urlApi) {
         <div class="group relative">
             <div
                class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-               <img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full">
+               <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
             </div>
             <div class="mt-4 flex justify-between">
               <h3 class="text-sm text-gray-700">
@@ -36,8 +36,9 @@ async function fetchData(urlApi) {
         `).slice(0,4).join('')}
           
         `;
-    } catch {
-        
+        content.innerHTML = view;
+    } catch (error) {
+      console.log(error);
     }
 
 })();
